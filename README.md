@@ -38,15 +38,31 @@ Use your knowledge of logistic regression to complete the following steps:
     
 2. Print the classification report.
 
-# Answer the following question: How well does the logistic regression model predict both the 0 (healthy loan) and 1 (high-risk loan) labels?
+# Answer the following question: 
+How well does the logistic regression model predict both the 0 (healthy loan) and 1 (high-risk loan) labels?
 
-# Write a Credit Risk Analysis Report
-Write a brief report that includes a summary and analysis of the performance of the machine learning models that you used in this homework. You should write this     report as the README.md file included in your GitHub repository.
+### Write a Credit Risk Analysis Report
+The purpose of this analysis is to evaluate whether borrowers are ‘at-risk’ or ‘credit-worthy’ to lend to.
 
-Structure your report by using the report template that Starter_Code.zip includes, ensuring that it contains the following:
-  
-1. An overview of the analysis: Explain the purpose of this analysis.
-  
-2. The results: Using a bulleted list, describe the accuracy score, the precision score, and recall score of the machine learning model.
-  
-3. A summary: Summarize the results from the machine learning model. Include your justification for recommending the model for use by the company. If you don’t          recommend the model, justify your reasoning.
+I imported data reading the loan size, interest rate, borrower income, debt to income, number of accounts, derogatory marks, and total debt. These were the features, while the label was the loan status. Using the features, we needed to predict whether borrowers were credit worthy to lend to or not. The label was a confirmation whether borrowers received a loan or not.  
+
+Once I had the feature and labels saved in X and y variables, I then ran a “train-test-split” from sklearn which gave me my training data to train the model on, and the testing data to then test the model. 
+
+I instantiated a Logistic Regression model and fit it with the training data to train the model. Using the ‘X-test’ data, I then had the model make predictions for the labels. This is where the machine predicts whether the borrower would receive a loan or not. These predicted labels were then ran against the actuals labels.
+
+To analyze the results of the model, I generated a confusion matrix and printed a confusion matrix.
+
+## Results
+
+Using bulleted lists, describe the balanced accuracy score and the precision and recall scores of the machine learning model.
+•	The accuracy score of the Logistic Regression model is 94%
+•	Both the precision and recall for predicting healthy loans is 100%
+•	The precision for predicting high-risk loans is 87%
+•	The recall for predicting high-risk loans is 89%
+
+## Summary
+
+For this data set it is most important to predict the high-risk loans and this model did have a lower precision and recall score for predicting these borrowers. When evaluating the confusion matrix, it was found that with a testing sample size of 2,384, there were 80 false positives and 67 false negatives given by the model. That means that 80 borrowers were predicted to provide loans to when they were high-risk borrowers.
+
+I would want to develop a model with a higher precision and recall ratings on predicting at-risk borrowers.   
+
