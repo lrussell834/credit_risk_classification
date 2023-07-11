@@ -1,31 +1,28 @@
-# Module 12 Report Template
+# Module 20 Report 
 
 ## Overview of the Analysis
 
-In this section, describe the analysis you completed for the machine learning models used in this Challenge. This might include:
 
-* Explain the purpose of the analysis.
-* Explain what financial information the data was on, and what you needed to predict.
-* Provide basic information about the variables you were trying to predict (e.g., `value_counts`).
-* Describe the stages of the machine learning process you went through as part of this analysis.
-* Briefly touch on any methods you used (e.g., `LogisticRegression`, or any resampling method).
+       The purpose of this analysis is to evaluate whether borrowers are ‘at-risk’ or ‘credit-worthy’ to lend to.
+              I imported data reading the loan size, interest rate, borrower income, debt to income, number of accounts, derogatory marks, and total debt. These were the features, while the label was the loan status. Using the features, we needed to predict whether borrowers were credit worthy to lend to or not. The label was a confirmation whether borrowers received a loan or not.  
+       	Once I had the feature and labels saved in X and y variables, I then ran a “train-test-split” from sklearn which gave me my training data to train the model on, and the testing data to then test the model. 
+
+	I instantiated a Logistic Regression model and fit it with the training data to train the model. Using the ‘X-test’ data, I then had the model make predictions for the labels. This is where the machine predicts whether the borrower would receive a loan or not. These predicted labels were then ran against the actuals labels.
+
+	To analyze the results of the model, I generated a confusion matrix and printed a confusion matrix.
 
 ## Results
 
-Using bulleted lists, describe the balanced accuracy scores and the precision and recall scores of all machine learning models.
-
-* Machine Learning Model 1:
-  * Description of Model 1 Accuracy, Precision, and Recall scores.
-
-
-
-* Machine Learning Model 2:
-  * Description of Model 2 Accuracy, Precision, and Recall scores.
+Using bulleted lists, describe the balanced accuracy score and the precision and recall scores of the machine learning model.
+* The accuracy score of the Logistic Regression model is 94%
+* Both the precision and recall for predicting healthy loans is 100%
+* The precision for predicting high-risk loans is 87%
+* The recall for predicting high-risk loans is 89%
 
 ## Summary
 
-Summarize the results of the machine learning models, and include a recommendation on the model to use, if any. For example:
-* Which one seems to perform best? How do you know it performs best?
-* Does performance depend on the problem we are trying to solve? (For example, is it more important to predict the `1`'s, or predict the `0`'s? )
+       For this data set it is most important to predict the high-risk loans and this model did have a lower precision and recall score for predicting these borrowers. When evaluating the confusion matrix, it was found that with a testing sample size of 2,384, there were 80 false positives and 67 false negatives given by the model. That means that 80 borrowers were predicted to provide loans to when they were high-risk borrowers.
 
-If you do not recommend any of the models, please justify your reasoning.
+       I would want to develop a model with a higher precision and recall ratings on predicting at-risk borrowers.   
+
+
